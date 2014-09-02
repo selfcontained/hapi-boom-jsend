@@ -1,4 +1,6 @@
+[![Build Status](https://travis-ci.org/selfcontained/hapi-boom-jsend.svg?branch=master)](https://travis-ci.org/selfcontained/hapi-boom-jsend)
+
 hapi-boom-jsend
 ===============
 
-Convert hapi boom errors into jsend responses
+hapi plugin to convert boom errors into jsend responses
