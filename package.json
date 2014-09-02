@@ -1,0 +1,39 @@
+{
+  "name": "hapi-boom-jsend",
+  "version": "0.0.0",
+  "description": "Convert hapi boom errors into jsend responses",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "lab -c",
+    "coverage": "lab -c -r html -o coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/selfcontained/hapi-boom-jsend.git"
+  },
+  "keywords": [
+    "hapi",
+    "jsend",
+    "boom",
+    "transform"
+  ],
+  "author": "Brad Harris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selfcontained/hapi-boom-jsend/issues"
+  },
+  "homepage": "https://github.com/selfcontained/hapi-boom-jsend",
+  "devDependencies": {
+    "lab": "^4.2.0",
+    "hapi": "^6.7.1",
+    "boom": "^2.5.1",
+    "jsend": "^0.1.2",
+    "joi": "^4.6.2"
+  },
+  "dependencies": {
+    "deap": "^1.0.0"
+  }
+}
