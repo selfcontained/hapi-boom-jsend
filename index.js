@@ -1,21 +1,12 @@
-var Payload = require('./lib/payload');
+var Handler = require('./lib/handler');
 
-module.exports = function() {
+exports.register = function(plugin, options, done) {
 
-	var Handler = function(req, next) {
-		// transform boom payload to jsend
-		if(req && req.response && req.response.isBoom) {
-			Handler.transform(req.response.output.payload);
-		}
+	plugin.ext('onPreResponse', Handler());
 
-		next();
-	};
+	done();
+};
 
-	Handler.transform = function(data) {
-		var payload = new Payload(data);
-
-		return payload.transform();
-	};
-
-	return Handler;
+exports.register.attributes = {
+	pkg: require('./package.json')
 };
