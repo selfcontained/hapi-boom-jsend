@@ -1,6 +1,6 @@
 {
   "name": "hapi-boom-jsend",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "hapi plugin to convert boom errors into jsend responses",
   "main": "index.js",
   "scripts": {
