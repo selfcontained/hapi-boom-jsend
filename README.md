@@ -28,8 +28,8 @@ npm install hapi-boom-jsend
 ```json
 {
   "status": "fail",
-  "error": "Bad Request",
-  "statusCode": 400,
+  "error": "Unauthorized",
+  "statusCode": 401,
   "data": { "message": "your message" }
 }
 ```
