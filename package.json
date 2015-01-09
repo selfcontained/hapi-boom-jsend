@@ -29,7 +29,7 @@
   "homepage": "https://github.com/selfcontained/hapi-boom-jsend",
   "devDependencies": {
     "lab": "^4.2.0",
-    "hapi": "^6.7.1",
+    "hapi": "^8.0.0",
     "boom": "^2.5.1",
     "jsend": "^0.1.2",
     "joi": "^4.6.2"

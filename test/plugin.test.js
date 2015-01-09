@@ -6,18 +6,13 @@ var Lab = require('lab'),
 lab.experiment('Hapi plugin', function() {
 
 	lab.test('should register', function(done) {
-		var server = hapi.createServer();
+		var server = new hapi.Server();
 
-		server.pack.register(
-			{
-				plugin: HapiBoomJsend
-			},
-			function(err) {
-				Lab.assert.isUndefined(err);
+		server.register(HapiBoomJsend, function(err) {
+			Lab.assert.isUndefined(err);
 
-				done();
-			}
-		);
+			done();
+		});
 	});
 
 });

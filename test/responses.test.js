@@ -35,7 +35,7 @@ lab.experiment('hapi-boom-jsend transform', function() {
 	lab.experiment('input validation', function() {
 
 		lab.test('without proper validation', function(done) {
-			var server = hapi.createServer();
+			var server = new hapi.Server().connection();
 
 			server.route({
 				method: 'POST',
@@ -81,7 +81,7 @@ lab.experiment('hapi-boom-jsend transform', function() {
 		});
 
 		lab.test('with proper validation', function(done) {
-			var server = hapi.createServer();
+			var server = new hapi.Server().connection();
 
 			server.route({
 				method: 'POST',
