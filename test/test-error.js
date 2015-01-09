@@ -1,9 +1,10 @@
 var Lab = require('lab'),
 	hapi = require('hapi'),
+	http = require('http'),
 	HapiBoomJsend = require('../index');
 
 module.exports = function testError(kaboom, expected, done) {
-	var server = hapi.createServer();
+	var server = new hapi.Server().connection();
 
 	server.route({
 		method: 'GET',
@@ -12,25 +13,20 @@ module.exports = function testError(kaboom, expected, done) {
 			reply(kaboom);
 		}
 	});
+	server.register(HapiBoomJsend, function(err) {
+		Lab.assert.isUndefined(err);
 
-	server.pack.register(
-		{
-			plugin: HapiBoomJsend
-		},
-		function(err) {
-			Lab.assert.isUndefined(err);
+		server.inject({
+			method: 'GET',
+			url: '/'
+		}, function(res) {
+			var payload = JSON.parse(res.payload);
 
-			server.inject({
-				method: 'GET',
-				url: '/'
-			}, function(res) {
-				var payload = JSON.parse(res.payload);
+			Lab.assert.deepEqual(payload, expected);
 
-				Lab.assert.deepEqual(payload, expected);
+			done();
+		});
 
-				done();
-			});
-		}
-	);
+	});
 
 };

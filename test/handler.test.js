@@ -17,21 +17,28 @@ lab.experiment('hapi-boom-jsend transform', function() {
 		lab.test('should pass-through w/o a response on the request', function(done) {
 			var handler = Handler();
 
-			handler({}, function() {
+			handler({}, reply(function() {
 				Lab.assert.isTrue(true);
 				done();
-			});
+			}));
 		});
 
 		lab.test('should pass-through w/ a null request', function(done) {
 			var handler = Handler();
 
-			handler(null, function() {
+			handler(null, reply(function() {
 				Lab.assert.isTrue(true);
 				done();
-			});
+			}));
 		});
 
 	});
+
+	// return a reply-like interface
+	function reply(done) {
+		return {
+			continue: done
+		};
+	}
 
 });
